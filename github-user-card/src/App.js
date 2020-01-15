@@ -10,7 +10,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      cardInfo: []
+      cardInfo: [],
+      followersInfo: []
     };
   }
 
@@ -24,17 +25,28 @@ class App extends React.Component {
         console.log(res);
       })
       .catch(err => console.log(err));
+    axios
+      .get("https://api.github.com/users/SandraCoburn/followers")
+      .then(res => {
+        this.setState({
+          followersInfo: res.data
+        });
+        console.log("followers", res);
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
     console.log("loading", this.state);
     return (
-      <div className="App">
+      <div>
         <header>
-          <h1>My GitHub</h1>
           <Logos />
         </header>
-        <GitHubCard cardInfo={this.state.cardInfo} />
+        <GitHubCard
+          cardInfo={this.state.cardInfo}
+          followers={this.state.followersInfo}
+        />
       </div>
     );
   }
