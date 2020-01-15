@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import GitHubCard from "./GitHubCard";
+import Logos from "./Logos";
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+// const followersArray = ["brandonharris177", " NathanNguyen"];
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      cardInfo: []
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("https://api.github.com/users/SandraCoburn")
+      .then(res => {
+        this.setState({
+          cardInfo: res.data
+        });
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  }
+
+  render() {
+    console.log("loading", this.state);
+    return (
+      <div className="App">
+        <header>
+          <h1>My GitHub</h1>
+          <Logos />
+        </header>
+        <GitHubCard cardInfo={this.state.cardInfo} />
+      </div>
+    );
+  }
 }
 
 export default App;
