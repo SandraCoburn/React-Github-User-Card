@@ -11,7 +11,8 @@ class App extends React.Component {
     super();
     this.state = {
       cardInfo: [],
-      followersInfo: []
+      followersInfo: [],
+      query: ""
     };
   }
 
@@ -35,6 +36,17 @@ class App extends React.Component {
       })
       .catch(err => console.log(err));
   }
+  handleChanges = e => {
+    this.setState({ query: e.target.value });
+  };
+
+  filterUsers = e => {
+    e.preventDefault();
+    const results = this.state.followersInfo.filter(user =>
+      user.toLowerCase().includes(this.query.toLowerCase())
+    );
+    this.setState({ followersInfo: results });
+  };
 
   render() {
     console.log("loading", this.state);
@@ -43,6 +55,18 @@ class App extends React.Component {
         <header>
           <Logos />
         </header>
+        <div className="search">
+          <form>
+            <input
+              id="name"
+              onChange={this.handleChanges}
+              value={this.filterUsers}
+              placeholder="Search..."
+              type="text"
+              name="textfield"
+            />
+          </form>
+        </div>
         <GitHubCard
           cardInfo={this.state.cardInfo}
           followers={this.state.followersInfo}
