@@ -12,6 +12,7 @@ class App extends React.Component {
     this.state = {
       cardInfo: [],
       followersInfo: [],
+      followerInfo: [],
       query: ""
     };
   }
@@ -33,19 +34,33 @@ class App extends React.Component {
           followersInfo: res.data
         });
         console.log("followers", res);
+        //This will go through all followers and make an API call for each of therm to get personal info
+        res.data.forEach(person => {
+          axios
+            .get(`https://api.github.com/users/${person.login}`)
+            .then(res => {
+              //"joined" is a new array to pass info from state, one follower at a time
+              var joined = this.state.followerInfo.concat(res.data);
+              this.setState({
+                followerInfo: joined
+              });
+              console.log("follower", res);
+            });
+        });
       })
       .catch(err => console.log(err));
   }
+  //this get triggered by the input's onchange
   handleChanges = e => {
     this.setState({ query: e.target.value });
+    this.filterUsers(e.target.value);
   };
-
-  filterUsers = e => {
-    e.preventDefault();
-    const results = this.state.followersInfo.filter(user =>
-      user.toLowerCase().includes(this.query.toLowerCase())
+  //query is the target value from input. this will filter all the cards and leave only the matching to input data
+  filterUsers = query => {
+    const results = this.state.followerInfo.filter(user =>
+      user.name.toLowerCase().includes(query.toLowerCase())
     );
-    this.setState({ followersInfo: results });
+    this.setState({ followerInfo: results });
   };
 
   render() {
@@ -60,7 +75,7 @@ class App extends React.Component {
             <input
               id="name"
               onChange={this.handleChanges}
-              value={this.filterUsers}
+              value={this.state.query}
               placeholder="Search..."
               type="text"
               name="textfield"
@@ -70,6 +85,7 @@ class App extends React.Component {
         <GitHubCard
           cardInfo={this.state.cardInfo}
           followers={this.state.followersInfo}
+          followerInfo={this.state.followerInfo}
         />
       </div>
     );

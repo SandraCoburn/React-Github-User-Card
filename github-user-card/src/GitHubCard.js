@@ -1,14 +1,13 @@
 import React from "react";
-import axios from "axios";
 
 const GitHubCard = props => {
-  const { cardInfo, followers } = props;
+  const { cardInfo, followerInfo } = props;
   console.log(props);
   return (
     <>
       <div className="card">
         <div className="card-info">
-          <img src={cardInfo.avatar_url} />
+          <img src={cardInfo.avatar_url} alt="avatar" />
           <h2 className="name">{cardInfo.name}</h2>
           <p className="username">{cardInfo.username}</p>
           <p>Location: {cardInfo.location}</p>
@@ -23,13 +22,17 @@ const GitHubCard = props => {
         <h1>{cardInfo.name}'s Followers:</h1>
       </div>
       <div className="followers-box">
-        {followers.map((follower, index) => {
+        {followerInfo.map((follower, index) => {
           return (
             <div className="followers" key={index}>
               <div className="card-info">
                 <img src={follower.avatar_url} alt="user avatar" />
-                <p>Log in: {follower.login}</p>
-
+                <p>{follower.name} </p>
+                <p>{follower.login}</p>
+                <p>Location: {follower.location}</p>
+                <p>Followers: {follower.followers}</p>
+                <p>Following: {follower.following}</p>
+                <p>Bio: {follower.bio}</p>
                 <p>
                   Profile: <a href={follower.html_url}>{follower.html_url}</a>
                 </p>
