@@ -27,7 +27,7 @@ const GitHubCard = props => {
             <div className="followers" key={index}>
               <div className="card-info">
                 <img src={follower.avatar_url} alt="user avatar" />
-                <p>{follower.name} </p>
+                <p className="name">{follower.name} </p>
                 <p>{follower.login}</p>
                 <p>Location: {follower.location}</p>
                 <p>Followers: {follower.followers}</p>

@@ -187,6 +187,15 @@ header p {
   margin-bottom: 30px;
   margin-left: 20%;
 }
+.card a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: rgb(17, 3, 31);
+}
+.card a:hover {
+  color: gold;
+  font-weight: bolder;
+}
 
 .card img {
   width: 150px;
@@ -196,7 +205,12 @@ header p {
 }
 
 .card .name {
-  font-size: 2rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.card .name:hover {
+  color: gold;
+  font-weight: bolder;
 }
 
 .card p {
@@ -234,9 +248,27 @@ header p {
 .followers p {
   color: white;
 }
+.followers .name {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.followers .name:hover {
+  color: gold;
+  font-weight: bolder;
+}
 .followers img {
   height: 80px;
   width: 80px;
+}
+.followers a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: rgb(17, 3, 31);
+}
+.followers a:hover {
+  color: gold;
+  font-weight: bolder;
 }
 form {
   margin: 20px 0;
