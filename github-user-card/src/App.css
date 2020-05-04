@@ -1,0 +1,291 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Reset above, our CSS below */
+
+html,
+body,
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  background: linear-gradient(141deg, #426153 0%, #2a2c2c 51%, #46616b 75%);
+}
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+h1 {
+  font-size: 50px;
+  text-align: center;
+}
+header img {
+  width: 5%;
+  height: 5%;
+  text-align: center;
+}
+
+header p {
+  font-size: 48px;
+}
+
+.cards {
+  width: 100%;
+}
+
+.card {
+  width: 60%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px -2px #000;
+  background-image: linear-gradient(rgb(179, 179, 131), #52502c);
+  margin-bottom: 30px;
+  margin-left: 20%;
+}
+.card a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: rgb(17, 3, 31);
+}
+.card a:hover {
+  color: gold;
+  font-weight: bolder;
+}
+
+.card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 3px;
+  margin-right: 20px;
+}
+
+.card .name {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.card .name:hover {
+  color: gold;
+  font-weight: bolder;
+}
+
+.card p {
+  font-size: 1.4rem;
+  margin-bottom: 3px;
+  color: white;
+}
+
+.card .username {
+  font-size: 1.8rem;
+  font-style: italic;
+  margin: 3px 0 10px;
+}
+.followers-box {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.followers {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  position: relative;
+  background-image: linear-gradient(rgb(179, 179, 131), #52502c);
+  border-radius: 5px;
+  height: 30%;
+  margin: 8px;
+  padding: 16px;
+  width: 40%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(17, 68, 28, 0.24);
+}
+.followers p {
+  color: white;
+}
+.followers .name {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.followers .name:hover {
+  color: gold;
+  font-weight: bolder;
+}
+.followers img {
+  height: 80px;
+  width: 80px;
+}
+.followers a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: rgb(17, 3, 31);
+}
+.followers a:hover {
+  color: gold;
+  font-weight: bolder;
+}
+form {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form input {
+  margin: 10px 0;
+  width: 200px;
+}
+form textarea {
+  margin: 10px 0;
+}
+form input[type="text"] {
+  padding: 10px;
+  border: 1px solid #263650;
+}
