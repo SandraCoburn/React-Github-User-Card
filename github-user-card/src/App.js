@@ -29,15 +29,8 @@ class App extends React.Component {
         console.log("my info", res);
       })
       .catch((err) => console.log(err));
-    //This call will get the contributions shart, added the cors proxy to get rid of cors errors
-    axios
-      .get(
-        "https://cors-anywhere.herokuapp.com/https://github.com/users/SandraCoburn/contributions"
-      )
-      .then((res) => {
-        console.log("contributions data", res);
-      })
-      .catch((err) => console.log(err));
+    //This call will get the contributions chart, added the cors proxy to get rid of cors errors
+
     axios
       .get(
         "https://cors-anywhere.herokuapp.com/https://api.github.com/users/SandraCoburn/followers"

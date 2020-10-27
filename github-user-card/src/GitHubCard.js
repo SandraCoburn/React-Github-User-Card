@@ -1,6 +1,6 @@
 import React from "react";
 
-const GitHubCard = props => {
+const GitHubCard = (props) => {
   const { cardInfo, followerInfo } = props;
   console.log(props);
   return (
@@ -17,6 +17,18 @@ const GitHubCard = props => {
           <p>Following: {cardInfo.following}</p>
           <p>Bio: {cardInfo.bio}</p>
         </div>
+        <img
+          className="chart"
+          style={{
+            border: "4px solid black",
+            borderRadius: "5px",
+            background: "black",
+            padding: ".5rem, 1rem",
+            width: "400px",
+          }}
+          src={`https://ghchart.rshah.org/SandraCoburn`}
+          alt="Github chart"
+        />
       </div>
       <div>
         <h1>{cardInfo.name}'s Followers:</h1>
